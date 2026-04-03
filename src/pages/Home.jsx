@@ -35,17 +35,17 @@ const CountUp = ({ end, duration = 2500, suffix = '+' }) => {
 const FAQItem = ({ faq }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div 
+    <div
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
-      className={`border-2 rounded-2xl transition-all duration-300 ${isOpen ? 'border-[#166534] bg-white shadow-md' : 'border-green-100 bg-white/50 hover:border-green-300'}`}
+      className={`border-2 rounded-2xl transition-all duration-300 ${isOpen ? 'border-[#004700] bg-white shadow-md' : 'border-green-100 bg-white/50 hover:border-green-300'}`}
     >
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between p-5 text-left focus:outline-none"
       >
-        <span className={`text-[17px] font-bold transition-colors duration-300 ${isOpen ? 'text-[#166534]' : 'text-[#0d3d22]'}`}>{faq.q}</span>
-        <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-[#166534] text-white rotate-180' : 'bg-green-100 text-[#166534]'}`}>
+        <span className={`text-[17px] font-bold transition-colors duration-300 ${isOpen ? 'text-[#004700]' : 'text-[#002e00]'}`}>{faq.q}</span>
+        <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-[#004700] text-white rotate-180' : 'bg-green-100 text-[#004700]'}`}>
           <ChevronDown size={20} />
         </div>
       </button>
@@ -96,9 +96,9 @@ const ExclusiveRow = ({ exc, idx }) => {
       </div>
       {/* Text */}
       <div className="w-full md:w-1/2 px-4">
-        <h3 className="text-3xl md:text-4xl font-extrabold text-[#166534] mb-6 leading-tight">{exc.title}</h3>
+        <h3 className="text-3xl md:text-4xl font-extrabold text-[#004700] mb-6 leading-tight">{exc.title}</h3>
         <p className="text-gray-700 text-lg mb-8 leading-relaxed">{exc.desc}</p>
-        <Link to="/products" className="inline-flex items-center gap-2 border-2 border-[#166534] text-[#166534] font-bold px-8 py-3 rounded-full hover:bg-[#166534] hover:text-white transition-all duration-300 group">
+        <Link to="/products" className="inline-flex items-center gap-2 border-2 border-[#004700] text-[#004700] font-bold px-8 py-3 rounded-full hover:bg-[#004700] hover:text-white transition-all duration-300 group">
           Explore Product <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
         </Link>
       </div>
@@ -127,20 +127,21 @@ const Home = () => {
   }, []);
 
   const categories = [
-    { name: 'SEEDS', link: 'SEEDS', bg: 'bg-gradient-to-tr from-[#166534] to-[#14532d]', icon: '🌱' },
-    { name: 'CROP NUTRITION', link: 'CROP NUTRITION', bg: 'bg-gradient-to-tr from-[#166534] to-[#14532d]', icon: '🧪' },
-    { name: 'CROP PROTECTION', link: 'CROP PROTECTION', bg: 'bg-gradient-to-tr from-[#D4AF37] to-[#B8860B]', icon: '🛡️' },
-    { name: 'GARDEN CARE', link: 'GARDEN CARE', bg: 'bg-gradient-to-tr from-[#166534] to-[#14532d]', icon: '🧑‍🌾' },
-    { name: 'BOGO OFFERS', link: 'BUY 1 GET 1 FREE', bg: 'bg-gradient-to-tr from-[#D4AF37] to-[#B8860B]', icon: '🎁' },
-    { name: 'SUPER COMBO', link: 'SUPER COMBO', bg: 'bg-gradient-to-tr from-[#166534] to-[#14532d]', icon: '📦' },
-    { name: 'AGRI EQUIPMENT', link: 'AGRI EQUIPMENT', bg: 'bg-gradient-to-tr from-[#166534] to-[#14532d]', icon: '🚜' },
-    { name: 'IRRIGATION', link: 'IRRIGATION', bg: 'bg-gradient-to-tr from-[#166534] to-[#14532d]', icon: '💦' },
+    { name: 'SEEDS', link: 'SEEDS', bg: 'bg-gradient-to-tr from-[#004700] to-[#002e00]', icon: '🌱' },
+    { name: 'CROP NUTRITION', link: 'CROP NUTRITION', bg: 'bg-gradient-to-tr from-[#004700] to-[#002e00]', icon: '🧪' },
+    { name: 'CROP PROTECTION', link: 'CROP PROTECTION', bg: 'bg-gradient-to-tr from-[#D4AF37] to-[#b8962c]', icon: '🛡️' },
+    { name: 'GARDEN CARE', link: 'GARDEN CARE', bg: 'bg-gradient-to-tr from-[#004700] to-[#002e00]', icon: '🧑‍🌾' },
+    { name: 'BOGO OFFERS', link: 'BUY 1 GET 1 FREE', bg: 'bg-gradient-to-tr from-[#D4AF37] to-[#b8962c]', icon: '🎁' },
+    { name: 'SUPER COMBO', link: 'SUPER COMBO', bg: 'bg-gradient-to-tr from-[#004700] to-[#002e00]', icon: '📦' },
+    { name: 'AGRI EQUIPMENT', link: 'AGRI EQUIPMENT', bg: 'bg-gradient-to-tr from-[#004700] to-[#002e00]', icon: '🚜' },
+    { name: 'IRRIGATION', link: 'IRRIGATION', bg: 'bg-gradient-to-tr from-[#004700] to-[#002e00]', icon: '💦' },
   ];
 
   const exclusives = [
     { img: 'https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&w=800&q=80', title: 'Premium Hybrid Seeds', badge: 'Top Pick', desc: 'Get the highest quality hybrid seeds with minimum 95% germination rate. Perfectly calibrated and matched for your local soil conditions, ensuring a reliable and abundant harvest every single season.' },
     { img: 'https://images.unsplash.com/photo-1628102491629-778571d893a3?auto=format&fit=crop&w=800&q=80', title: 'Organic Nutrition Mix', badge: 'Massive Offer', desc: 'Boost your crops naturally with our perfectly blended organic fertilizers. Rich in micronutrients and bio-stimulants, this mix dramatically improves soil health and yield volume.' },
     { img: 'https://images.unsplash.com/photo-1587691592099-24045742c181?auto=format&fit=crop&w=800&q=80', title: 'Advanced Crop Protection', badge: 'Protect', desc: 'Keep your yields safe from unpredictable pests and diseases. Our extensive range of certified organic and chemical protectors shield your crops at all vulnerable stages of growth.' },
+    { img: 'https://images.unsplash.com/photo-1596701062351-be999e4a8ea5?auto=format&fit=crop&w=800&q=80', title: 'Precision Irrigation', badge: 'Save Water', desc: 'Optimize your water usage with our next-generation drip and sprinkler systems. Reduce water waste by up to 50% while ensuring uniform moisture for all your crops.' }
   ];
 
   const brands = [
@@ -153,15 +154,15 @@ const Home = () => {
   ];
 
   return (
-    <div className="bg-[#eaf5ef] min-h-screen font-sans overflow-hidden">
+    <div className="bg-[#f0f7f0] min-h-screen font-sans overflow-hidden">
 
       {/* ── Hero Slider ── */}
-      <div className="w-full relative bg-[#166534] h-[450px] md:h-[600px] overflow-hidden">
+      <div className="w-full relative bg-[#004700] h-[450px] md:h-[600px] overflow-hidden">
         <div className="flex h-full transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${activeBanner * 100}%)` }}>
           {heroBanners.map((b, idx) => (
             <div key={idx} className="min-w-full h-full relative flex items-center">
               <div className="px-6 sm:px-10 lg:px-24 z-10 max-w-3xl">
-                <div className="inline-block bg-[#D4AF37] text-[#166534] font-extrabold px-3 py-1 rounded text-sm sm:text-lg mb-6 shadow-xl">{b.badge}</div>
+                <div className="inline-block bg-[#D4AF37] text-[#004700] font-extrabold px-3 py-1 rounded text-sm sm:text-lg mb-6 shadow-xl">{b.badge}</div>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#eaf5ef] mb-4 leading-tight drop-shadow-lg">
                   {b.title},<br /><span className="text-[#D4AF37]">{b.subtitle}</span>
                 </h1>
@@ -171,8 +172,8 @@ const Home = () => {
                 </Link>
               </div>
               <div className="absolute right-0 h-full w-[60%] hidden md:block">
-                <img src={b.img} className="h-full w-full object-cover rounded-l-[100px] shadow-2xl" alt="" onError={e => { e.target.style.display='none'; }} />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#166534] via-[#166534]/80 to-transparent" />
+                <img src={b.img} className="h-full w-full object-cover rounded-l-[100px] shadow-2xl" alt="" onError={e => { e.target.style.display = 'none'; }} />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#004700] via-[#004700]/80 to-transparent" />
               </div>
             </div>
           ))}
@@ -187,11 +188,11 @@ const Home = () => {
       </div>
 
       {/* ── Feature Strip ── */}
-      <div className="bg-white py-8 border-b-4 border-[#166534] shadow-md relative z-20 -mt-6 mx-4 rounded-xl md:mx-auto max-w-[1200px]">
+      <div className="bg-white py-8 border-b-4 border-[#004700] shadow-md relative z-20 -mt-6 mx-4 rounded-xl md:mx-auto max-w-[1200px]">
         <div className="flex flex-col md:flex-row justify-around items-center gap-6">
           {[{ icon: <Headphones size={32} />, label: 'FARMER SUPPORT' }, { icon: <Shield size={32} />, label: 'SAFE PAYMENT' }, { icon: <Truck size={32} />, label: 'FAST DELIVERY' }].map(f => (
-            <div key={f.label} className="flex items-center gap-4 text-[#166534] font-bold text-lg md:text-xl group">
-              <div className="bg-[#eaf5ef] p-4 rounded-full group-hover:scale-110 transition-transform">{f.icon}</div> {f.label}
+            <div key={f.label} className="flex items-center gap-4 text-[#004700] font-bold text-lg md:text-xl group">
+              <div className="bg-[#f0f7f0] p-4 rounded-full group-hover:scale-110 transition-transform">{f.icon}</div> {f.label}
             </div>
           ))}
         </div>
@@ -201,24 +202,24 @@ const Home = () => {
       <div className="max-w-[1400px] mx-auto px-4 py-16 text-center">
         <div className="flex items-center justify-center gap-4 mb-10">
           <div className="h-1 w-12 bg-[#D4AF37]" />
-          <h2 className="text-3xl font-extrabold text-[#166534] uppercase tracking-wide section-title">Essential Categories</h2>
+          <h2 className="text-3xl font-extrabold text-[#004700] uppercase tracking-wide section-title">Essential Categories</h2>
           <div className="h-1 w-12 bg-[#D4AF37]" />
         </div>
         <div className="flex overflow-x-auto pb-8 hide-scrollbar snap-x snap-mandatory px-4 touch-pan-x gap-6 lg:justify-center">
           {categories.map((cat, idx) => (
             <Link to={`/products?category=${encodeURIComponent(cat.link)}`} key={idx}
               className="flex flex-col items-center w-28 shrink-0 snap-center group coin-container cursor-pointer">
-              <div className={`coin w-28 h-28 rounded-full ${cat.bg} p-1 mb-4 shadow-[0_8px_20px_rgba(22,101,52,0.3)] transition-all duration-700 flex items-center justify-center text-4xl text-white`}>
+              <div className={`coin w-28 h-28 rounded-full ${cat.bg} p-1 mb-4 shadow-[0_8px_20px_rgba(0,71,0,0.3)] transition-all duration-700 flex items-center justify-center text-4xl text-white`}>
                 <div className="w-full h-full rounded-full border-2 border-white/20 flex items-center justify-center bg-black/10">{cat.icon}</div>
               </div>
-              <span className="text-xs font-extrabold text-[#166534] uppercase leading-snug tracking-wider bg-white px-3 py-1 rounded-full shadow-sm mt-3 group-hover:bg-[#166534] group-hover:text-white transition-colors duration-300">{cat.name}</span>
+              <span className="text-xs font-extrabold text-[#004700] uppercase leading-snug tracking-wider bg-white px-3 py-1 rounded-full shadow-sm mt-3 group-hover:bg-[#004700] group-hover:text-white transition-colors duration-300">{cat.name}</span>
             </Link>
           ))}
         </div>
       </div>
 
       {/* ── TODAY OFFERS ── */}
-      <div className="bg-[#166534] py-16 overflow-hidden">
+      <div className="bg-[#004700] py-16 overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4">
           <div className="flex justify-between items-end mb-10 px-2">
             <div>
@@ -228,7 +229,7 @@ const Home = () => {
             </div>
             <Link to="/products?category=BUY 1 GET 1 FREE" className="hidden sm:inline-flex items-center gap-2 bg-[#D4AF37] text-white font-bold px-6 py-2 rounded-full hover:bg-yellow-500 transition shadow-lg group">View All <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></Link>
           </div>
-          
+
           {isLoading ? (
             <div className="flex justify-center py-24"><div className="animate-spin rounded-full h-14 w-14 border-b-4 border-[#D4AF37]" /></div>
           ) : (
@@ -244,7 +245,7 @@ const Home = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Navigation Indicators (visible on group hover) */}
               <div className="absolute top-1/2 -translate-y-1/2 left-2 right-2 flex justify-between pointer-events-none opacity-0 group-hover/marquee:opacity-100 transition-opacity duration-300">
                 <div className="bg-black/20 backdrop-blur-md p-3 rounded-full text-white/50"><ChevronDown size={24} className="rotate-90" /></div>
@@ -252,7 +253,7 @@ const Home = () => {
               </div>
             </div>
           )}
-          
+
           <div className="mt-8 text-center sm:hidden px-4">
             <Link to="/products" className="inline-flex items-center gap-2 bg-[#D4AF37] text-white font-bold w-full justify-center py-4 rounded-xl hover:bg-yellow-500 transition shadow-lg">See All Offers</Link>
           </div>
@@ -260,14 +261,14 @@ const Home = () => {
       </div>
 
       {/* ── Today's Offers Feature Strip ── */}
-      <div className="bg-[#eaf5ef] py-6 border-b border-[#166534]/10">
+      <div className="bg-[#f0f7f0] py-6 border-b border-[#004700]/10">
         <div className="max-w-[1400px] mx-auto px-4">
           <div className="flex flex-wrap justify-around items-center gap-6">
             {[
               { icon: <Truck size={32} strokeWidth={1.8} className="text-black" />, label: 'COD Available' },
-              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>, label: 'Easy Exchange' },
-              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>, label: 'Assured Quality' },
-              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>, label: 'Handpicked' },
+              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>, label: 'Easy Exchange' },
+              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="m9 12 2 2 4-4" /></svg>, label: 'Assured Quality' },
+              { icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" /><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" /></svg>, label: 'Handpicked' },
             ].map(f => (
               <div key={f.label} className="flex flex-col items-center gap-2 group">
                 <div className="group-hover:scale-125 transition-transform duration-300">{f.icon}</div>
@@ -279,9 +280,9 @@ const Home = () => {
       </div>
 
       {/* ── Platform Exclusives ── */}
-      <div className="bg-[#eaf5ef] py-16 overflow-hidden">
+      <div className="bg-[#f0f7f0] py-16 overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4">
-          <h2 className="text-3xl font-extrabold text-center text-[#166534] mb-16 tracking-widest uppercase section-title">Platform Exclusives</h2>
+          <h2 className="text-3xl font-extrabold text-center text-[#004700] mb-16 tracking-widest uppercase section-title">Platform Exclusives</h2>
           <div className="space-y-16">
             {exclusives.map((exc, idx) => (
               <ExclusiveRow key={idx} exc={exc} idx={idx} />
@@ -295,13 +296,13 @@ const Home = () => {
         <div className="max-w-[1400px] mx-auto px-4">
           <div className="flex justify-between items-end mb-10">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black text-[#166534] mb-2 section-title">Best Selling</h2>
+              <h2 className="text-4xl md:text-5xl font-black text-[#004700] mb-2 section-title">Best Selling</h2>
               <p className="text-gray-500 font-medium text-lg">Top picked products loved by farmers!</p>
             </div>
             <Link to="/products" className="hidden sm:inline-flex items-center gap-2 bg-[#D4AF37] text-white font-bold px-6 py-2 rounded-full hover:bg-yellow-600 transition">View All <ArrowRight size={18} /></Link>
           </div>
           {isLoading ? (
-            <div className="flex justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[#166534]" /></div>
+            <div className="flex justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[#004700]" /></div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
               {products.slice(0, 12).map(p => (
@@ -312,14 +313,14 @@ const Home = () => {
             </div>
           )}
           <div className="mt-8 text-center sm:hidden">
-            <Link to="/products" className="inline-flex items-center gap-2 bg-[#166534] text-white font-bold px-8 py-3 rounded-full hover:bg-[#D4AF37] transition">View All</Link>
+            <Link to="/products" className="inline-flex items-center gap-2 bg-[#004700] text-white font-bold px-8 py-3 rounded-full hover:bg-[#D4AF37] transition">View All</Link>
           </div>
         </div>
       </div>
 
 
       {/* ── Stats Counter (above Brands) ── */}
-      <div id="stats-section" className="py-14" style={{ background: 'linear-gradient(135deg, #0d3d22 0%, #166534 50%, #1a7a40 100%)' }}>
+      <div id="stats-section" className="py-14" style={{ background: 'linear-gradient(135deg, #002e00 0%, #004700 50%, #006400 100%)' }}>
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -340,41 +341,41 @@ const Home = () => {
         </div>
       </div>
 
-       {/* ── FAQ (Frequently Asked Questions) ── */}
-       <div className="bg-[#f2fcf2] py-20 relative overflow-hidden">
-         <div className="max-w-4xl mx-auto px-4 relative z-10">
-           <div className="text-center mb-12">
-             <h2 className="text-3xl font-extrabold text-[#166534] uppercase section-title mb-4">Frequently Asked Questions</h2>
-             <p className="text-gray-600 font-medium tracking-wide">Everything you need to know about Green FSP</p>
-           </div>
-           <div className="space-y-4">
-             {[
-               { q: "How can I track my order?", a: "You can track your order by clicking the 'Track Order' button in the navbar and entering your Order ID or mobile number. You'll see real-time updates of your delivery status!" },
-               { q: "What is Green FSP?", a: "Green FSP is a premium agricultural marketplace connecting farmers with high-quality seeds, fertilizers, and equipment from verified brands and sellers." },
-               { q: "How do I become a seller?", a: "Growing your business with us is easy! Click on 'Become a Seller' in the top bar, fill in your farm details, and our team will get in touch with you within 24 hours." },
-               { q: "Is cash on delivery available?", a: "Yes! We provide Cash on Delivery (COD) for most locations across India to ensure a safe and trustworthy shopping experience for our farmers." }
-             ].map((faq, idx) => (
-               <FAQItem key={idx} faq={faq} />
-             ))}
-           </div>
-         </div>
-       </div>
+      {/* ── FAQ (Frequently Asked Questions) ── */}
+      <div className="bg-[#f0f7f0] py-20 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-extrabold text-[#004700] uppercase section-title mb-4">Frequently Asked Questions</h2>
+            <p className="text-gray-600 font-medium tracking-wide">Everything you need to know about GREEN FSP</p>
+          </div>
+          <div className="space-y-4">
+            {[
+              { q: "How can I track my order?", a: "You can track your order by clicking the 'Track Order' button in the navbar and entering your Order ID or mobile number. You'll see real-time updates of your delivery status!" },
+              { q: "What is GREEN FSP?", a: "GREEN FSP is a premium agricultural marketplace connecting farmers with high-quality seeds, fertilizers, and equipment from verified brands and sellers." },
+              { q: "How do I become a seller?", a: "Growing your business with us is easy! Click on 'Become a Seller' in the top bar, fill in your farm details, and our team will get in touch with you within 24 hours." },
+              { q: "Is cash on delivery available?", a: "Yes! We provide Cash on Delivery (COD) for most locations across India to ensure a safe and trustworthy shopping experience for our farmers." }
+            ].map((faq, idx) => (
+              <FAQItem key={idx} faq={faq} />
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* ── Floating AI Assistant ── */}
       <div className="fixed bottom-8 right-8 z-[100] group">
         <div className="absolute -inset-2 bg-green-200 rounded-full animate-ping opacity-25 group-hover:opacity-50"></div>
-        <button className="relative w-14 h-14 bg-[#166534] hover:bg-[#D4AF37] text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(22,101,52,0.4)] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 transform group-hover:scale-110 group-active:scale-95 border-2 border-white">
+        <button className="relative w-14 h-14 bg-[#004700] hover:bg-[#D4AF37] text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,71,0,0.4)] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 transform group-hover:scale-110 group-active:scale-95 border-2 border-white">
           <Bot size={28} className="animate-bounce" style={{ animationDuration: '3s' }} />
         </button>
-        <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white px-4 py-2 rounded-xl shadow-lg border border-green-100 text-[#166534] font-bold text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
+        <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white px-4 py-2 rounded-xl shadow-lg border border-green-100 text-[#004700] font-bold text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
           How can I help you today?
         </div>
       </div>
 
       {/* ── Trusted Top Brands Marquee ── */}
-      <div className="bg-white py-16 border-t border-b border-[#166534]/20 overflow-hidden relative">
+      <div className="bg-white py-16 border-t border-b border-[#004700]/20 overflow-hidden relative">
         <div className="max-w-[1400px] mx-auto px-4 mb-10 text-center">
-          <h2 className="text-3xl font-extrabold text-[#166534] uppercase section-title">Trusted Top Brands</h2>
+          <h2 className="text-3xl font-extrabold text-[#004700] uppercase section-title">Trusted Top Brands</h2>
         </div>
         <div className="marquee-track flex items-center">
           {[...brands, ...brands, ...brands, ...brands, ...brands].map((brand, idx) => (
@@ -388,7 +389,7 @@ const Home = () => {
                     onError={e => { e.target.onerror = null; e.target.src = 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=100&q=80'; }}
                   />
                 </div>
-                <span className="text-sm text-[#166534] font-extrabold text-center uppercase tracking-wide group-hover:text-[#D4AF37] transition-colors">{brand.name}</span>
+                <span className="text-sm text-[#004700] font-extrabold text-center uppercase tracking-wide group-hover:text-[#D4AF37] transition-colors">{brand.name}</span>
               </div>
               <div className="text-[#D4AF37] text-2xl flex items-center mx-2 animate-pulse">★</div>
             </React.Fragment>
@@ -396,7 +397,8 @@ const Home = () => {
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
