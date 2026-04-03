@@ -145,6 +145,15 @@ const Home = () => {
     { img: 'https://images.unsplash.com/photo-1596701062351-be999e4a8ea5?auto=format&fit=crop&w=800&q=80', title: 'Precision Irrigation', badge: 'Save Water', desc: 'Optimize your water usage with our next-generation drip and sprinkler systems. Reduce water waste by up to 50% while ensuring uniform moisture for all your crops.' }
   ];
 
+  const brands = [
+    { name: 'Farmigo Agro', logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=100&q=80' },
+    { name: 'Harvidh Green', logo: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=100&q=80' },
+    { name: 'Vermi Veda', logo: 'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&w=100&q=80' },
+    { name: 'NACL Industries', logo: 'https://images.unsplash.com/photo-1572044162444-ad60f128bdea?auto=format&fit=crop&w=100&q=80' },
+    { name: 'Dhanuka', logo: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=100&q=80' },
+    { name: 'IFFCO Organic', logo: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=100&q=80' },
+  ];
+
   return (
     <div className="bg-[#f1f4f1] min-h-screen font-sans overflow-hidden">
 
