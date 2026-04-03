@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useProductStore } from '../store/productStore';
 import ProductCard from '../components/ProductCard';
@@ -47,11 +47,12 @@ const Products = () => {
       {/* Animated Banner Header */}
       <div className="relative w-full h-[250px] md:h-[300px] overflow-hidden group">
         <img
-          src="https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&w=1200&q=80"
+          src="https://images.unsplash.com/photo-1523348830342-d0187cf0c169?auto=format&fit=crop&w=1600&q=80"
           alt="Products Banner"
+          loading="lazy"
           className="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-1000 ease-out"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#004700]/90 via-[#004700]/60 to-transparent flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#132A13]/90 via-[#132A13]/60 to-transparent flex items-center">
           <div className="px-6 md:px-16 animate-fade-in-up w-full">
             <div className="bg-[#D4AF37] text-white text-xs font-bold inline-block px-3 py-1 rounded-sm mb-3">EXPERIENCE THE BEST</div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-wide drop-shadow-md">
@@ -77,8 +78,8 @@ const Products = () => {
                     <button
                       onClick={() => handleCategoryChange(category)}
                       className={`w-full text-left px-3 py-2.5 rounded-lg transition-all duration-300 transform active:scale-95 ${activeCategory === category
-                          ? 'bg-[#004700] text-white font-bold shadow-md'
-                          : 'text-gray-600 hover:bg-[#f0f7f0] hover:text-[#004700] font-medium'
+                          ? 'bg-[#132A13] text-white font-bold shadow-md'
+                          : 'text-gray-600 hover:bg-[#f1f4f1] hover:text-[#132A13] font-medium'
                         }`}
                     >
                       {category}
@@ -105,7 +106,7 @@ const Products = () => {
               </div>
               <button
                 type="submit"
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#D4AF37] text-white font-bold px-6 py-2 rounded-lg hover:bg-[#004700] transition active:scale-95"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#D4AF37] text-white font-bold px-6 py-2 rounded-lg hover:bg-[#132A13] transition active:scale-95"
               >
                 Search
               </button>
@@ -114,7 +115,7 @@ const Products = () => {
             {/* Products Grid */}
             {isLoading ? (
               <div className="flex justify-center items-center py-20">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[#004700]"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[#132A13]"></div>
               </div>
             ) : products.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -131,7 +132,7 @@ const Products = () => {
                 <p className="text-gray-500 mb-6">We couldn't find any products in this category at the moment.</p>
                 <button
                   onClick={() => { setSearchTerm(''); handleCategoryChange('All'); }}
-                  className="bg-[#004700] text-white font-bold px-6 py-3 rounded-full hover:bg-[#D4AF37] active:scale-95 transition-all"
+                  className="bg-[#132A13] text-white font-bold px-6 py-3 rounded-full hover:bg-[#D4AF37] active:scale-95 transition-all"
                 >
                   View All Products
                 </button>
@@ -144,4 +145,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default memo(Products);

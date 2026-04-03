@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { ShoppingCart, Star, Heart } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useAuthStore } from '../store/authStore';
@@ -49,7 +49,7 @@ const ProductCard = ({ product }) => {
         <button 
           onClick={(e) => { e.stopPropagation(); toggleWishlist(product); }}
           className={`p-1.5 rounded-full shadow-md transition-all active:scale-95 ${
-            isInWishlist ? 'bg-white text-[#D4AF37]' : 'bg-white text-gray-400 hover:text-[#004700]'
+            isInWishlist ? 'bg-white text-[#D4AF37]' : 'bg-white text-gray-400 hover:text-[#132A13]'
           }`}
         >
           <Heart size={18} fill={isInWishlist ? "currentColor" : "none"} />
@@ -61,6 +61,7 @@ const ProductCard = ({ product }) => {
         <img
           src={product.image || 'https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&fit=crop&w=300&q=80'}
           alt={product.name}
+          loading="lazy"
           onError={e => { e.target.onerror = null; e.target.src = 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=300&q=80'; }}
           className="max-h-full object-contain group-hover:scale-105 transition-transform duration-500"
         />
@@ -91,7 +92,7 @@ const ProductCard = ({ product }) => {
           <button 
             onClick={handleAddToCart}
             disabled={isAdding}
-            className="bg-[#D4AF37] hover:bg-[#004700] text-white text-xs font-bold px-4 py-2 rounded-full cursor-pointer flex items-center justify-center gap-1 transition disabled:opacity-75"
+            className="bg-[#D4AF37] hover:bg-[#132A13] text-white text-xs font-bold px-4 py-2 rounded-full cursor-pointer flex items-center justify-center gap-1 transition disabled:opacity-75"
           >
             {isAdding ? (
               <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-white"></div>
@@ -105,4 +106,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default memo(ProductCard);

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import { useCartStore } from '../store/cartStore';
 import { useAuthStore } from '../store/authStore';
 import { useNavigate, Link } from 'react-router-dom';
@@ -24,7 +24,7 @@ const Cart = () => {
         </div>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Please login to view your cart</h2>
         <p className="text-gray-500 mb-8 max-w-md">You need to have an account to add items to your cart and place orders.</p>
-        <button onClick={() => navigate('/')} className="bg-[#D4AF37] text-white px-6 py-3 rounded-full font-medium hover:bg-[#004700]">
+        <button onClick={() => navigate('/')} className="bg-[#D4AF37] text-white px-6 py-3 rounded-full font-medium hover:bg-[#132A13]">
           Return Home
         </button>
       </div>
@@ -62,7 +62,7 @@ const Cart = () => {
             </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Your cart is empty</h2>
             <p className="text-gray-500 mb-8">Looks like you haven't added any fresh produce to your cart yet.</p>
-            <Link to="/products" className="inline-block bg-[#D4AF37] text-white px-8 py-3 rounded-full font-bold hover:bg-[#004700] shadow-md">
+            <Link to="/products" className="inline-block bg-[#D4AF37] text-white px-8 py-3 rounded-full font-bold hover:bg-[#132A13] shadow-md">
               Start Shopping
             </Link>
           </div>
@@ -152,7 +152,7 @@ const Cart = () => {
                   </div>
                   <div className="border-t border-dashed border-gray-200 pt-4 flex justify-between items-center">
                     <span className="text-lg font-bold text-gray-900">Total</span>
-                    <span className="text-2xl font-extrabold text-[#004700]">₹{finalTotal}</span>
+                    <span className="text-2xl font-extrabold text-[#132A13]">₹{finalTotal}</span>
                   </div>
                   {deliveryFee > 0 && (
                     <p className="text-xs text-gray-500 text-center mt-2">Add ₹{500 - totalItemPrice} more for FREE delivery!</p>
@@ -161,7 +161,7 @@ const Cart = () => {
 
                 <button
                   onClick={handleCheckout}
-                  className="w-full bg-[#D4AF37] hover:bg-[#004700] text-white font-bold py-4 rounded-xl shadow-md transition-colors flex justify-center items-center gap-2"
+                  className="w-full bg-[#D4AF37] hover:bg-[#132A13] text-white font-bold py-4 rounded-xl shadow-md transition-colors flex justify-center items-center gap-2"
                 >
                   Proceed to Checkout <ArrowRight size={20} />
                 </button>
@@ -180,4 +180,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default memo(Cart);

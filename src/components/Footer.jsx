@@ -21,26 +21,26 @@ const Footer = () => {
   return (
     <footer className="w-full font-sans">
       {/* Main Footer Section */}
-      <div className="bg-[#004700] pt-10 pb-6 text-white text-sm">
+      <div className="bg-[#132A13] pt-10 pb-6 text-white text-sm">
         <div className="max-w-[1200px] mx-auto px-4">
 
           {/* Social Icons */}
           <div className="flex justify-center gap-4 mb-10">
-            <a href="#" className="h-10 w-10 min-w-[40px] rounded-full bg-[#D4AF37] flex items-center justify-center hover:bg-[#f0f7f0] hover:text-[#004700] transition shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+            <Link to="#" className="h-10 w-10 min-w-[40px] rounded-full bg-[#D4AF37] flex items-center justify-center hover:bg-[#f1f4f1] hover:text-[#132A13] transition shadow-[0_0_10px_rgba(212,175,55,0.5)]">
               <FacebookIcon />
-            </a>
-            <a href="#" className="h-10 w-10 min-w-[40px] rounded-full bg-[#D4AF37] flex items-center justify-center hover:bg-[#f0f7f0] hover:text-[#004700] transition shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+            </Link>
+            <Link to="#" className="h-10 w-10 min-w-[40px] rounded-full bg-[#D4AF37] flex items-center justify-center hover:bg-[#f1f4f1] hover:text-[#132A13] transition shadow-[0_0_10px_rgba(212,175,55,0.5)]">
               <InstagramIcon />
-            </a>
-            <a href="#" className="h-10 w-10 min-w-[40px] rounded-full bg-[#D4AF37] flex items-center justify-center hover:bg-[#f0f7f0] hover:text-[#004700] transition shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+            </Link>
+            <Link to="#" className="h-10 w-10 min-w-[40px] rounded-full bg-[#D4AF37] flex items-center justify-center hover:bg-[#f1f4f1] hover:text-[#132A13] transition shadow-[0_0_10px_rgba(212,175,55,0.5)]">
               <TwitterIcon />
-            </a>
-            <a href="#" className="h-10 w-10 min-w-[40px] rounded-full bg-[#D4AF37] flex items-center justify-center hover:bg-[#f0f7f0] hover:text-[#004700] transition shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+            </Link>
+            <Link to="#" className="h-10 w-10 min-w-[40px] rounded-full bg-[#D4AF37] flex items-center justify-center hover:bg-[#f1f4f1] hover:text-[#132A13] transition shadow-[0_0_10px_rgba(212,175,55,0.5)]">
               <YoutubeIcon />
-            </a>
-            <a href="#" className="h-10 w-10 min-w-[40px] rounded-full bg-[#D4AF37] flex items-center justify-center hover:bg-[#f0f7f0] hover:text-[#004700] transition shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+            </Link>
+            <Link to="#" className="h-10 w-10 min-w-[40px] rounded-full bg-[#D4AF37] flex items-center justify-center hover:bg-[#f1f4f1] hover:text-[#132A13] transition shadow-[0_0_10px_rgba(212,175,55,0.5)]">
               <LinkedinIcon />
-            </a>
+            </Link>
           </div>
 
           {/* Details Section */}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingBag, Heart, MapPin, Search, ChevronDown, CircleUserRound, LayoutDashboard, Truck, LogOut, Menu, X, Sprout, Headset, LogIn } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
@@ -56,7 +56,7 @@ const Navbar = () => {
     <>
       <nav className={`bg-white sticky top-0 z-40 w-full shadow-md flex flex-col transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         {/* Top Green Bar */}
-        <div className="bg-[#004700] text-white text-xs py-1 px-4 md:px-8 flex justify-between items-center hide-on-mobile">
+        <div className="bg-[#132A13] text-white text-xs py-1 px-4 md:px-8 flex justify-between items-center hide-on-mobile">
           <div className="flex items-center gap-1 cursor-pointer hover:text-[#D4AF37] transition text-sm font-medium group">
             <Sprout size={14} className="animate-sprout group-hover:text-[#D4AF37]" /> Become a Seller
           </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
 
         {/* Promo Top Strip under Top bar */}
         <div className="bg-slate-50 flex justify-center py-1.5 border-b border-gray-200 hide-on-mobile text-xs font-semibold gap-4 overflow-hidden">
-          <span className="bg-[#f0f7f0] text-[#004700] px-3 py-1 rounded-full border border-[#004700]/20 border-dashed animate-pulse">Get Free Delivery on Purchase Above ₹499.</span>
+          <span className="bg-[#f1f4f1] text-[#132A13] px-3 py-1 rounded-full border border-[#132A13]/20 border-dashed animate-pulse">Get Free Delivery on Purchase Above ₹499.</span>
         </div>
 
         {/* Main Navbar */}
@@ -75,17 +75,17 @@ const Navbar = () => {
 
           <div className="flex items-center gap-4">
             {/* Hamburger Icon for Mobile */}
-            <button className="lg:hidden text-[#004700]" onClick={() => setIsMobileMenuOpen(true)}>
+            <button className="lg:hidden text-[#132A13]" onClick={() => setIsMobileMenuOpen(true)}>
               <Menu size={28} />
             </button>
 
             {/* Logo & Location */}
             <div className="flex items-center lg:gap-6 flex-shrink-0 animate-fade-in">
-              <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-                <img src="/logo.png" alt="GREEN FSP" className="h-12 w-12 object-contain rounded-full" />
+              <Link to="/" className="flex items-center gap-2 group">
+                <img src="/logo.png" alt="GREEN FSP" loading="lazy" className="h-12 w-12 object-contain rounded-full" />
                 <span className="hidden sm:flex flex-col leading-tight">
                   <span className="text-[#D4AF37] text-lg font-extrabold tracking-tight">GREEN</span>
-                  <span className="text-[#004700] text-sm font-black tracking-widest">FSP</span>
+                  <span className="text-[#132A13] text-sm font-black tracking-widest">FSP</span>
                 </span>
               </Link>
 
@@ -100,8 +100,8 @@ const Navbar = () => {
           </div>
 
           {/* Search Bar */}
-          <div className="hidden md:flex flex-1 max-w-[650px] relative h-10 border-2 border-[#004700]/20 focus-within:border-[#D4AF37] rounded-md bg-white transition-colors duration-300">
-            <div className="flex items-center bg-gray-50 rounded-l-md px-3 border-r border-[#004700]/20 text-sm text-gray-700 cursor-pointer hover:bg-gray-100">
+          <div className="hidden md:flex flex-1 max-w-[650px] relative h-10 border-2 border-[#132A13]/20 focus-within:border-[#D4AF37] rounded-md bg-white transition-colors duration-300">
+            <div className="flex items-center bg-gray-50 rounded-l-md px-3 border-r border-[#132A13]/20 text-sm text-gray-700 cursor-pointer hover:bg-gray-100">
               All <ChevronDown size={14} className="ml-1" />
             </div>
             <input
@@ -109,7 +109,7 @@ const Navbar = () => {
               placeholder="Search for seeds, fertilizers & more..."
               className="w-full px-3 h-full outline-none text-sm placeholder-gray-400 bg-transparent"
             />
-            <button className="px-4 text-white bg-[#004700] hover:bg-[#D4AF37] transition-colors rounded-r-sm flex items-center justify-center">
+            <button className="px-4 text-white bg-[#132A13] hover:bg-[#D4AF37] transition-colors rounded-r-sm flex items-center justify-center">
               <Search size={18} />
             </button>
           </div>
@@ -119,20 +119,20 @@ const Navbar = () => {
 
             <Link to="/dashboard" className="hidden lg:flex flex-col items-center gap-1 hover:text-[#D4AF37] transition-colors cursor-pointer group">
               <div className="relative">
-                <LayoutDashboard size={22} className="text-[#004700] group-hover:text-[#D4AF37] transition-colors group-hover:scale-110 transform transition-transform" />
+                <LayoutDashboard size={22} className="text-[#132A13] group-hover:text-[#D4AF37] transition-colors group-hover:scale-110 transform transition-transform" />
                 <span className="absolute -top-1 -right-1 w-2 h-2 bg-[#D4AF37] rounded-full animate-ping opacity-75"></span>
               </div>
               <span>Seller</span>
             </Link>
 
             <button onClick={handleTrackClick} className="hidden sm:flex flex-col items-center gap-1 hover:text-[#D4AF37] transition-colors cursor-pointer group">
-              <Truck size={22} className="text-[#004700] group-hover:text-[#D4AF37] transition-colors transform group-hover:translate-x-1" />
+              <Truck size={22} className="text-[#132A13] group-hover:text-[#D4AF37] transition-colors transform group-hover:translate-x-1" />
               <span>Track Order</span>
             </button>
 
             <Link to="/wishlist" className="hidden flex flex-col items-center gap-1 hover:text-[#D4AF37] transition-colors cursor-pointer relative group">
               <div className="relative transform group-hover:scale-110 transition-transform">
-                <Heart size={22} className="text-[#004700] group-hover:text-[#D4AF37] transition-all" />
+                <Heart size={22} className="text-[#132A13] group-hover:text-[#D4AF37] transition-all" />
                 <span className="absolute -top-2 -right-2 bg-[#D4AF37] text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full font-bold">
                   {wishlist?.length || 0}
                 </span>
@@ -142,7 +142,7 @@ const Navbar = () => {
 
             <Link to="/cart" className="flex flex-col items-center gap-1 hover:text-[#D4AF37] transition-colors cursor-pointer relative group">
               <div className="relative transform group-hover:scale-110 transition-transform">
-                <ShoppingBag size={22} className="text-[#004700] group-hover:text-[#D4AF37] group-hover:rotate-6 transition-all duration-300" />
+                <ShoppingBag size={22} className="text-[#132A13] group-hover:text-[#D4AF37] group-hover:rotate-6 transition-all duration-300" />
                 <span className="absolute -top-2 -right-2 bg-[#D4AF37] text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full font-bold">
                   {cart?.length || 0}
                 </span>
@@ -153,10 +153,10 @@ const Navbar = () => {
             {isAuthenticated ? (
               <div className="relative group cursor-pointer">
                 <div className="flex flex-col items-center gap-1 hover:text-[#D4AF37] transition-colors">
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#004700] to-[#006400] text-white flex items-center justify-center font-bold text-xs shadow-md group-hover:ring-2 group-hover:ring-[#D4AF37] transition-all">
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#132A13] to-[#1a3d1a] text-white flex items-center justify-center font-bold text-xs shadow-md group-hover:ring-2 group-hover:ring-[#D4AF37] transition-all">
                     {user?.name?.charAt(0).toUpperCase()}
                   </div>
-                  <span className="text-[#004700] font-bold max-w-[60px] truncate">{user?.name}</span>
+                  <span className="text-[#132A13] font-bold max-w-[60px] truncate">{user?.name}</span>
                 </div>
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-xl py-1 border border-gray-100 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
                   <button onClick={handleLogout} className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center gap-2">
@@ -166,7 +166,7 @@ const Navbar = () => {
               </div>
             ) : (
               <div onClick={() => setIsAuthModalOpen(true)} className="flex flex-col items-center gap-1 hover:text-[#D4AF37] transition-colors cursor-pointer group">
-                <LogIn size={22} className="text-[#004700] group-hover:text-[#D4AF37] group-hover:translate-x-1 transform transition-transform duration-300" />
+                <LogIn size={22} className="text-[#132A13] group-hover:text-[#D4AF37] group-hover:translate-x-1 transform transition-transform duration-300" />
                 <span>Login</span>
               </div>
             )}
@@ -175,7 +175,7 @@ const Navbar = () => {
             <div className="relative">
               <button
                 onClick={() => setLangOpen(p => !p)}
-                className={`flex items-center gap-1 text-[11px] font-bold text-[#004700] px-2 py-1 rounded border-2 transition-all duration-300 ${langOpen ? 'border-[#004700] lang-spin' : 'border-[#004700]/40 hover:border-[#004700]'
+                className={`flex items-center gap-1 text-[11px] font-bold text-[#132A13] px-2 py-1 rounded border-2 transition-all duration-300 ${langOpen ? 'border-[#132A13] lang-spin' : 'border-[#132A13]/40 hover:border-[#132A13]'
                   }`}
               >
                 <span>{language === 'EN' ? '🇬🇧' : '🇮🇳'}</span>
@@ -183,12 +183,12 @@ const Navbar = () => {
                 <ChevronDown size={12} className={`transition-transform duration-300 ${langOpen ? 'rotate-180' : ''}`} />
               </button>
               {langOpen && (
-                <div className="absolute right-0 mt-1 w-28 bg-white rounded-lg shadow-xl border border-[#004700]/20 overflow-hidden z-50">
+                <div className="absolute right-0 mt-1 w-28 bg-white rounded-lg shadow-xl border border-[#132A13]/20 overflow-hidden z-50">
                   {[{ code: 'EN', label: 'English', flag: '🇬🇧' }, { code: 'TA', label: 'தமிழ்', flag: '🇮🇳' }].map(l => (
                     <button
                       key={l.code}
                       onClick={() => { setLanguage(l.code); setLangOpen(false); }}
-                      className={`w-full flex items-center gap-2 px-3 py-2 text-xs font-bold transition-colors ${language === l.code ? 'bg-[#004700] text-white' : 'text-gray-700 hover:bg-[#f0f7f0] hover:text-[#004700]'
+                      className={`w-full flex items-center gap-2 px-3 py-2 text-xs font-bold transition-colors ${language === l.code ? 'bg-[#132A13] text-white' : 'text-gray-700 hover:bg-[#f1f4f1] hover:text-[#132A13]'
                         }`}
                     >
                       <span>{l.flag}</span><span>{l.label}</span>
@@ -201,7 +201,7 @@ const Navbar = () => {
         </div>
 
         {/* Sub-Navbar / Categories (Desktop) */}
-        <div className="border-t border-b border-gray-200 bg-[#004700] hidden lg:block shadow-inner">
+        <div className="border-t border-b border-gray-200 bg-[#132A13] hidden lg:block shadow-inner">
           <div className="max-w-[1400px] w-full mx-auto px-4 overflow-x-auto hide-scrollbar">
             <ul className="flex items-center justify-center gap-8 whitespace-nowrap text-[13px] font-bold text-white py-3">
               {navLinks.map((link) => (
@@ -222,7 +222,7 @@ const Navbar = () => {
         <div className="fixed inset-0 z-50 flex">
           <div className="fixed inset-0 bg-black/50 transition-opacity" onClick={() => setIsMobileMenuOpen(false)}></div>
           <div className="relative flex w-4/5 max-w-sm flex-col bg-white h-full shadow-2xl animate-slide-right">
-            <div className="flex items-center justify-between p-4 border-b bg-[#004700] text-white">
+            <div className="flex items-center justify-between p-4 border-b bg-[#132A13] text-white">
               <span className="text-xl font-bold text-[#D4AF37]">GREEN FSP</span>
               <button onClick={() => setIsMobileMenuOpen(false)}><X size={24} /></button>
             </div>
@@ -241,10 +241,13 @@ const Navbar = () => {
               </div>
               <div className="border-t pt-4 space-y-4">
                 <button onClick={() => { setIsMobileMenuOpen(false); handleTrackClick({ preventDefault: () => { } }); }} className="flex items-center gap-3 text-gray-800 font-medium">
-                  <Truck size={20} className="text-[#004700]" /> Track Order
+                  <Truck size={20} className="text-[#132A13]" /> Track Order
                 </button>
+                <Link to="/wishlist" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-gray-800 font-medium">
+                  <Heart size={20} className="text-[#132A13]" /> My Wishlist
+                </Link>
                 <Link to="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-gray-800 font-medium">
-                  <LayoutDashboard size={20} className="text-[#004700]" /> Become a Seller
+                  <LayoutDashboard size={20} className="text-[#132A13]" /> Become a Seller
                 </Link>
               </div>
             </div>
@@ -259,14 +262,14 @@ const Navbar = () => {
           <div className="bg-white rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl relative z-10 animate-fade-in-up">
             <button onClick={() => setIsTrackOrderOpen(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-800 z-10"><X size={24} /></button>
 
-            <div className="bg-[#f0f7f0] p-6 text-center border-b-4 border-[#004700] relative overflow-hidden">
+            <div className="bg-[#f1f4f1] p-6 text-center border-b-4 border-[#132A13] relative overflow-hidden">
               {/* Lorry Animation container */}
-              <div className="w-full h-16 relative mt-4 border-b-2 border-dashed border-[#004700]/30">
-                <div className={`absolute bottom-0 text-[#004700] transition-all duration-[2000ms] ease-in-out ${isLorryArrived ? 'left-[80%]' : 'left-0'}`}>
+              <div className="w-full h-16 relative mt-4 border-b-2 border-dashed border-[#132A13]/30">
+                <div className={`absolute bottom-0 text-[#132A13] transition-all duration-[2000ms] ease-in-out ${isLorryArrived ? 'left-[80%]' : 'left-0'}`}>
                   <Truck size={40} className={`transform ${isLorryArrived ? 'scale-110 text-[#D4AF37]' : ''} transition-all`} />
                 </div>
               </div>
-              <h3 className="text-xl font-bold mt-4 text-[#004700]">
+              <h3 className="text-xl font-bold mt-4 text-[#132A13]">
                 {isLorryArrived ? 'Ready to Track!' : 'Fetching Delivery System...'}
               </h3>
             </div>
@@ -279,7 +282,7 @@ const Navbar = () => {
                   placeholder="Order ID / Mobile Number"
                   className="w-full px-4 py-3 border-2 border-gray-200 focus:border-[#D4AF37] outline-none rounded-xl transition-colors"
                 />
-                <button className="w-full bg-[#004700] text-white font-bold py-3 rounded-xl hover:bg-[#D4AF37] hover:shadow-lg transition-all active:scale-95">
+                <button className="w-full bg-[#132A13] text-white font-bold py-3 rounded-xl hover:bg-[#D4AF37] hover:shadow-lg transition-all active:scale-95">
                   Track Now
                 </button>
               </div>
@@ -306,9 +309,9 @@ const Navbar = () => {
         .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
 
         @keyframes langBorderSpin {
-          0%   { border-color: #004700; box-shadow: 0 0 0 0 rgba(0,71,0,0.5); }
+          0%   { border-color: #132A13; box-shadow: 0 0 0 0 rgba(19,42,19,0.5); }
           50%  { border-color: #D4AF37; box-shadow: 0 0 8px 2px rgba(212,175,55,0.4); }
-          100% { border-color: #004700; box-shadow: 0 0 0 0 rgba(0,71,0,0.5); }
+          100% { border-color: #132A13; box-shadow: 0 0 0 0 rgba(19,42,19,0.5); }
         }
         .lang-spin { animation: langBorderSpin 1s ease-in-out infinite; }
 
@@ -331,4 +334,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

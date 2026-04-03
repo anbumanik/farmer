@@ -2,9 +2,9 @@
 
 :root {
   /* Brand Colors */
-  --primary: #004700;
-  --primary-dark: #002e00;
-  --primary-light: #f0f7f0;
+  --primary: #132A13;
+  --primary-dark: #0d1e0d;
+  --primary-light: #f1f4f1;
   --accent: #D4AF37;
   --accent-hover: #b8962c;
   --accent-bg: #fcf9ee;
@@ -12,14 +12,14 @@
   
   /* Shared UI Elements */
   --bg-main: #fcfdfc;
-  --border: #e5eee5;
-  --text-h: #002e00;
+  --border: #e2e8e2;
+  --text-h: #0d1e0d;
   --social-bg: #ffffff;
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 body {
   background-color: var(--bg-main);
-  color: #1a2e1a;
+  color: #1a231a;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
